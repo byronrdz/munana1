@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmpresaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empId}" for="empId" />
+                    <h:inputText id="empId" value="#{empresaController.selected.empId}" title="#{bundle.CreateEmpresaTitle_empId}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_empId}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empNombre}" for="empNombre" />
+                    <h:inputText id="empNombre" value="#{empresaController.selected.empNombre}" title="#{bundle.CreateEmpresaTitle_empNombre}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_empNombre}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empCiudad}" for="empCiudad" />
+                    <h:inputText id="empCiudad" value="#{empresaController.selected.empCiudad}" title="#{bundle.CreateEmpresaTitle_empCiudad}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empDireccion}" for="empDireccion" />
+                    <h:inputText id="empDireccion" value="#{empresaController.selected.empDireccion}" title="#{bundle.CreateEmpresaTitle_empDireccion}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empTelefono}" for="empTelefono" />
+                    <h:inputText id="empTelefono" value="#{empresaController.selected.empTelefono}" title="#{bundle.CreateEmpresaTitle_empTelefono}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empWeb}" for="empWeb" />
+                    <h:inputText id="empWeb" value="#{empresaController.selected.empWeb}" title="#{bundle.CreateEmpresaTitle_empWeb}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empCodpostal}" for="empCodpostal" />
+                    <h:inputText id="empCodpostal" value="#{empresaController.selected.empCodpostal}" title="#{bundle.CreateEmpresaTitle_empCodpostal}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empTipo}" for="empTipo" />
+                    <h:inputText id="empTipo" value="#{empresaController.selected.empTipo}" title="#{bundle.CreateEmpresaTitle_empTipo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empLat}" for="empLat" />
+                    <h:inputText id="empLat" value="#{empresaController.selected.empLat}" title="#{bundle.CreateEmpresaTitle_empLat}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empLon}" for="empLon" />
+                    <h:inputText id="empLon" value="#{empresaController.selected.empLon}" title="#{bundle.CreateEmpresaTitle_empLon}" />
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empVigente}" for="empVigente" />
+                    <h:inputText id="empVigente" value="#{empresaController.selected.empVigente}" title="#{bundle.CreateEmpresaTitle_empVigente}" required="true" requiredMessage="#{bundle.CreateEmpresaRequiredMessage_empVigente}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpresaLabel_empNota}" for="empNota" />
+                    <h:inputText id="empNota" value="#{empresaController.selected.empNota}" title="#{bundle.CreateEmpresaTitle_empNota}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{empresaController.create}" value="#{bundle.CreateEmpresaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{empresaController.prepareList}" value="#{bundle.CreateEmpresaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEmpresaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

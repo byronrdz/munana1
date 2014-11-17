@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewVariedadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varId}"/>
+                    <h:outputText value="#{variedadController.selected.varId}" title="#{bundle.ViewVariedadTitle_varId}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varFlor}"/>
+                    <h:outputText value="#{variedadController.selected.varFlor}" title="#{bundle.ViewVariedadTitle_varFlor}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varNombre}"/>
+                    <h:outputText value="#{variedadController.selected.varNombre}" title="#{bundle.ViewVariedadTitle_varNombre}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varColor}"/>
+                    <h:outputText value="#{variedadController.selected.varColor}" title="#{bundle.ViewVariedadTitle_varColor}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varUnidad}"/>
+                    <h:outputText value="#{variedadController.selected.varUnidad}" title="#{bundle.ViewVariedadTitle_varUnidad}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varNota}"/>
+                    <h:outputText value="#{variedadController.selected.varNota}" title="#{bundle.ViewVariedadTitle_varNota}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varImagen}"/>
+                    <h:outputText value="#{variedadController.selected.varImagen}" title="#{bundle.ViewVariedadTitle_varImagen}"/>
+                    <h:outputText value="#{bundle.ViewVariedadLabel_varDisponibilidad}"/>
+                    <h:outputText value="#{variedadController.selected.varDisponibilidad}" title="#{bundle.ViewVariedadTitle_varDisponibilidad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{variedadController.destroyAndView}" value="#{bundle.ViewVariedadDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewVariedadEditLink}"/>
+                <br />
+                <h:commandLink action="#{variedadController.prepareCreate}" value="#{bundle.ViewVariedadCreateLink}" />
+                <br />
+                <h:commandLink action="#{variedadController.prepareList}" value="#{bundle.ViewVariedadShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewVariedadIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

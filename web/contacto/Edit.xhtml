@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditContactoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conId}" for="conId" />
+                    <h:inputText id="conId" value="#{contactoController.selected.conId}" title="#{bundle.EditContactoTitle_conId}" required="true" requiredMessage="#{bundle.EditContactoRequiredMessage_conId}"/>
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conNombre}" for="conNombre" />
+                    <h:inputText id="conNombre" value="#{contactoController.selected.conNombre}" title="#{bundle.EditContactoTitle_conNombre}" required="true" requiredMessage="#{bundle.EditContactoRequiredMessage_conNombre}"/>
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conTelefono}" for="conTelefono" />
+                    <h:inputText id="conTelefono" value="#{contactoController.selected.conTelefono}" title="#{bundle.EditContactoTitle_conTelefono}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conMovil}" for="conMovil" />
+                    <h:inputText id="conMovil" value="#{contactoController.selected.conMovil}" title="#{bundle.EditContactoTitle_conMovil}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conEmail}" for="conEmail" />
+                    <h:inputText id="conEmail" value="#{contactoController.selected.conEmail}" title="#{bundle.EditContactoTitle_conEmail}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conSkype}" for="conSkype" />
+                    <h:inputText id="conSkype" value="#{contactoController.selected.conSkype}" title="#{bundle.EditContactoTitle_conSkype}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conCargo}" for="conCargo" />
+                    <h:inputText id="conCargo" value="#{contactoController.selected.conCargo}" title="#{bundle.EditContactoTitle_conCargo}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conVigente}" for="conVigente" />
+                    <h:inputText id="conVigente" value="#{contactoController.selected.conVigente}" title="#{bundle.EditContactoTitle_conVigente}" required="true" requiredMessage="#{bundle.EditContactoRequiredMessage_conVigente}"/>
+                    <h:outputLabel value="#{bundle.EditContactoLabel_conNota}" for="conNota" />
+                    <h:inputText id="conNota" value="#{contactoController.selected.conNota}" title="#{bundle.EditContactoTitle_conNota}" />
+                    <h:outputLabel value="#{bundle.EditContactoLabel_empId}" for="empId" />
+                    <h:selectOneMenu id="empId" value="#{contactoController.selected.empId}" title="#{bundle.EditContactoTitle_empId}" >
+                        <f:selectItems value="#{empresaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{contactoController.update}" value="#{bundle.EditContactoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditContactoViewLink}"/>
+                <br />
+                <h:commandLink action="#{contactoController.prepareList}" value="#{bundle.EditContactoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditContactoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

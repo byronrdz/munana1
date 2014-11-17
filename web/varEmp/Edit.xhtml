@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVarEmpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVarEmpLabel_vaEmId}" for="vaEmId" />
+                    <h:inputText id="vaEmId" value="#{varEmpController.selected.vaEmId}" title="#{bundle.EditVarEmpTitle_vaEmId}" required="true" requiredMessage="#{bundle.EditVarEmpRequiredMessage_vaEmId}"/>
+                    <h:outputLabel value="#{bundle.EditVarEmpLabel_varId}" for="varId" />
+                    <h:inputText id="varId" value="#{varEmpController.selected.varId}" title="#{bundle.EditVarEmpTitle_varId}" required="true" requiredMessage="#{bundle.EditVarEmpRequiredMessage_varId}"/>
+                    <h:outputLabel value="#{bundle.EditVarEmpLabel_empId}" for="empId" />
+                    <h:inputText id="empId" value="#{varEmpController.selected.empId}" title="#{bundle.EditVarEmpTitle_empId}" required="true" requiredMessage="#{bundle.EditVarEmpRequiredMessage_empId}"/>
+                    <h:outputLabel value="#{bundle.EditVarEmpLabel_vaEmCategoria}" for="vaEmCategoria" />
+                    <h:inputText id="vaEmCategoria" value="#{varEmpController.selected.vaEmCategoria}" title="#{bundle.EditVarEmpTitle_vaEmCategoria}" />
+                    <h:outputLabel value="#{bundle.EditVarEmpLabel_vaEmNota}" for="vaEmNota" />
+                    <h:inputText id="vaEmNota" value="#{varEmpController.selected.vaEmNota}" title="#{bundle.EditVarEmpTitle_vaEmNota}" />
+                </h:panelGrid>
+                <h:commandLink action="#{varEmpController.update}" value="#{bundle.EditVarEmpSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditVarEmpViewLink}"/>
+                <br />
+                <h:commandLink action="#{varEmpController.prepareList}" value="#{bundle.EditVarEmpShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditVarEmpIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

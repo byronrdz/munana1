@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListVarEmpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListVarEmpEmpty}" rendered="#{varEmpController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{varEmpController.items.rowCount > 0}">
+                    <h:outputText value="#{varEmpController.pagination.pageFirstItem + 1}..#{varEmpController.pagination.pageLastItem + 1}/#{varEmpController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{varEmpController.previous}" value="#{bundle.Previous} #{varEmpController.pagination.pageSize}" rendered="#{varEmpController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{varEmpController.next}" value="#{bundle.Next} #{varEmpController.pagination.pageSize}" rendered="#{varEmpController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{varEmpController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVarEmpTitle_vaEmId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vaEmId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVarEmpTitle_varId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.varId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVarEmpTitle_empId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVarEmpTitle_vaEmCategoria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vaEmCategoria}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVarEmpTitle_vaEmNota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vaEmNota}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{varEmpController.prepareView}" value="#{bundle.ListVarEmpViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{varEmpController.prepareEdit}" value="#{bundle.ListVarEmpEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{varEmpController.destroy}" value="#{bundle.ListVarEmpDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{varEmpController.prepareCreate}" value="#{bundle.ListVarEmpCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListVarEmpIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

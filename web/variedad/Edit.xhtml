@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVariedadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varId}" for="varId" />
+                    <h:inputText id="varId" value="#{variedadController.selected.varId}" title="#{bundle.EditVariedadTitle_varId}" required="true" requiredMessage="#{bundle.EditVariedadRequiredMessage_varId}"/>
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varFlor}" for="varFlor" />
+                    <h:inputText id="varFlor" value="#{variedadController.selected.varFlor}" title="#{bundle.EditVariedadTitle_varFlor}" required="true" requiredMessage="#{bundle.EditVariedadRequiredMessage_varFlor}"/>
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varNombre}" for="varNombre" />
+                    <h:inputText id="varNombre" value="#{variedadController.selected.varNombre}" title="#{bundle.EditVariedadTitle_varNombre}" required="true" requiredMessage="#{bundle.EditVariedadRequiredMessage_varNombre}"/>
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varColor}" for="varColor" />
+                    <h:inputText id="varColor" value="#{variedadController.selected.varColor}" title="#{bundle.EditVariedadTitle_varColor}" />
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varUnidad}" for="varUnidad" />
+                    <h:inputText id="varUnidad" value="#{variedadController.selected.varUnidad}" title="#{bundle.EditVariedadTitle_varUnidad}" />
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varNota}" for="varNota" />
+                    <h:inputText id="varNota" value="#{variedadController.selected.varNota}" title="#{bundle.EditVariedadTitle_varNota}" />
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varImagen}" for="varImagen" />
+                    <h:inputText id="varImagen" value="#{variedadController.selected.varImagen}" title="#{bundle.EditVariedadTitle_varImagen}" />
+                    <h:outputLabel value="#{bundle.EditVariedadLabel_varDisponibilidad}" for="varDisponibilidad" />
+                    <h:inputText id="varDisponibilidad" value="#{variedadController.selected.varDisponibilidad}" title="#{bundle.EditVariedadTitle_varDisponibilidad}" />
+                </h:panelGrid>
+                <h:commandLink action="#{variedadController.update}" value="#{bundle.EditVariedadSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditVariedadViewLink}"/>
+                <br />
+                <h:commandLink action="#{variedadController.prepareList}" value="#{bundle.EditVariedadShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditVariedadIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
